@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<title>Date Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body style="font-size: 26px;">
+
+ <style>
+  #outy b,#outw b,#outd b {
+    color: white;
+    background: red;
+    padding: 0px 5px;
+    font-size: xx-large;}
+  #outy {border:1px solid red;}
+  #outw b {background:blue;}#outw {border:1px solid blue;}
+  #outd b {background: black;}#outd {border:1px solid black;}
+  #outy ,#outw ,#outd {padding: 0 4px;}
+ </style>
+ 
+<h2></h2>
+
+  <label>Calculate From Today: </label><br>
+  <input id="indate" type="date" oninput="indate(this.value)" onchange="indate(this.value)" style="font-size:28px;">
+  <b id="outn">Friday</b>
+
+ <p><span id="outy"></span></p>
+<!--  <p>Months: <span id="outm"></span></p> -->
+ <p><span id="outw"></span></p>
+ <p><span id="outd"></span></p>
+
+<script> 
+
+ function indate(valNum) {
+
+ function difference(date1, date2) {  
+  const date1utc = Date.UTC(date1.getFullYear(), date1.getMonth(), date1.getDate());
+  const date2utc = Date.UTC(date2.getFullYear(), date2.getMonth(), date2.getDate());
+    dayk = 1000*60*60*24;
+  return  (Math.abs(date2utc - date1utc)/dayk)
+}
+
+const date1 = new Date(),date2 = new Date(valNum),days = difference(date1,date2);
+ let years = days/365;
+ let months = days/30;
+ let weeks = days/7;
+document.getElementById("outy").innerHTML = "Year: <b>"+Math.floor(years)+"</b> Month: <b>"+Math.floor(months)+"</b> Day: <b>"+days%30+"</b>";
+//document.getElementById("outm").innerHTML = Math.floor(months)+" Days: "+days%30;
+document.getElementById("outw").innerHTML = "Totale Weeks: <b>"+Math.floor(weeks)+"</b> Day: <b>"+days%7+"</b>";
+document.getElementById("outd").innerHTML = "Totale Days: <b>"+days+"</b>";
+console.log(days);
+
+const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const dg = new Date(valNum);
+let dayn = weekday[dg.getUTCDay()];
+document.getElementById("outn").innerHTML = dayn;
+
+ }
+
+</script>
+
+
+</body>
+</html>
