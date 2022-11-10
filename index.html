@@ -19,7 +19,7 @@
 <h2></h2>
 
   <label>आज से गणना करें:</label><br>
-  <input id="indate" type="date" oninput="indate(this.value)" onchange="indate(this.value)" style="font-size:28px;">
+  <input id="indate" type="date" onload="this.valueAsDate = new Date()" oninput="indate(this.value)" onchange="indate(this.value)" style="font-size:28px;">
   <b id="outn">...</b>
 
  <p><span id="outy"></span></p>
