@@ -18,9 +18,9 @@
  
 <h2></h2>
 
-  <label>Calculate From Today: </label><br>
+  <label>आज से गणना करें:</label><br>
   <input id="indate" type="date" oninput="indate(this.value)" onchange="indate(this.value)" style="font-size:28px;">
-  <b id="outn">Friday</b>
+  <b id="outn">...</b>
 
  <p><span id="outy"></span></p>
 <!--  <p>Months: <span id="outm"></span></p> -->
@@ -45,22 +45,22 @@ let y1= days/365;let y2= days%365;
 
 let m1=y2/30;let m2=y2%30;
 
- let w1=y2/7; let w2=y2%7
+let w1=y2/7; let w2=y2%7
 
- document.getElementById("outy").innerHTML = "Year:<b>"+Math.floor(y1)+"</b> Month:<b>"+Math.floor(m1)+"</b> Day:<b>"+m2+"</b>";
- document.getElementById("outw").innerHTML = "Total Weeks:<b>"+Math.floor(w1)+"</b> Day:<b>"+w2+"</b>";
- document.getElementById("outd").innerHTML = "Total Days:<b>"+days+"</b>";
- 
+ document.getElementById("outy").innerHTML = "वर्ष:<b>"+Math.floor(y1)+"</b> महीना:<b>"+Math.floor(m1)+"</b> दिन:<b>"+m2+"</b>";
+ document.getElementById("outw").innerHTML = "कुल सप्ताह:<b>"+Math.floor(w1)+"</b> दिन:<b>"+w2+"</b>";
+ document.getElementById("outd").innerHTML = "कुल दिन:<b>"+days+"</b>";
+
 //  let years = days/365;
 //  let months = (days%365)/30
 //  let weeks = days/7;
-//document.getElementById("outy").innerHTML = "Year:<b>"+Math.floor(years)+"</b> Month:<b>"+Math.floor(months)+"</b> Day:<b>"+(days%365)%30+"</b>";
+//document.getElementById("outy").innerHTML = "Year:<b>"+Math.floor(years)+"</b> महीना:<b>"+Math.floor(months)+"</b> दिन:<b>"+(days%365)%30+"</b>";
 //document.getElementById("outm").innerHTML = Math.floor(months)+" Days:"+days%30;
-//document.getElementById("outw").innerHTML = "Total Weeks:<b>"+Math.floor(weeks)+"</b> Day:<b>"+days%7+"</b>";
-//document.getElementById("outd").innerHTML = "Total Days:<b>"+days+"</b>";
+//document.getElementById("outw").innerHTML = "कुल सप्ताह:<b>"+Math.floor(weeks)+"</b> दिन:<b>"+days%7+"</b>";
+//document.getElementById("outd").innerHTML = "कुल दिन:<b>"+days+"</b>";
 
 
-const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const weekday = ["रविवार","सोमवार","मंगलवार","बुधवार","गुरुवार","शुक्रवार","शनिवार"];
 const dg = new Date(valNum);
 let dayn = weekday[dg.getUTCDay()];
 document.getElementById("outn").innerHTML = dayn;
