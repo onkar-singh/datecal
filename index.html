@@ -28,7 +28,9 @@
  <p><span id="outd"></span></p>
 
 <script> 
-document.getElementById('indate').valueAsDate = new Date(); 
+let d = new Date();
+let utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+document.getElementById('indate').valueAsDate = new Date(utc + (3600000*+5.5)); 
 indate(document.getElementById('indate').value);
 function indate(valNum) {
 
